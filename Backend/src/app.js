@@ -2,15 +2,19 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { userRouter } from "./routes/user.route.js";
 
 dotenv.config({
-    path:"./.env"
+    path: "./.env"
 });
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({extended:false}));
-app.use(cookieParser());
 app.use(cors());
 
-export default  app;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use("/api/v1/users",userRouter);
+
+export default app;
