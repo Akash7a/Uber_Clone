@@ -50,3 +50,43 @@ Registers a new user by validating their input, hashing their password, and savi
   }
 }
 ```
+ ## Endpoint: User Login
+ ## URL:
+ ## POST /api/v1/users/login
+
+ ## Description:
+(Authenticates a user by validating their email and password. Returns a JWT token upon successful authentication.)
+
+Request:
+Headers:
+Content-Type: application/json
+
+Body (JSON):
+
+json
+Copy code
+{
+  "email": "johndoe@example.com",
+  "password": "securepassword123"
+}
+email: (Required) String, must be a valid email address.
+password: (Required) String, must match the user's password.
+Response:
+Success:
+Status Code: 200 OK
+
+json
+Copy code
+{
+  "token": "generatedAuthToken",
+  "user": {
+    "_id": "userObjectId",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "johndoe@example.com",
+    "createdAt": "timestamp",
+    "updatedAt": "timestamp"
+  }
+}
