@@ -90,3 +90,20 @@ Copy code
     "updatedAt": "timestamp"
   }
 }
+
+## Get User Profile
+URL: GET /api/v1/users/profile
+Description: Fetches the authenticated user's profile.
+Headers:
+Authorization: Bearer <JWT_TOKEN> or token cookie.
+Response:
+200 OK: User profile data.
+401 Unauthorized: Invalid or missing token.
+2. ##  Logout
+URL: POST /api/v1/users/logout
+Description: Logs out the user by clearing the authentication token.
+Headers:
+Authorization: Bearer <JWT_TOKEN> or token cookie.
+Response:
+200 OK: { "message": "Logout successful." }
+401 Unauthorized: Invalid or missing token

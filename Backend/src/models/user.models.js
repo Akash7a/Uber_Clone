@@ -49,7 +49,7 @@ userSchema.pre("save", async function (next) {
 
 userSchema.methods.generateAuthToken = function () {
     try {
-        const token = jwt.sign({ _id: this._id }, process.env.AUTH_TOKEN_SECRET);
+        const token = jwt.sign({ _id: this._id }, process.env.AUTH_TOKEN_SECRET,{expiresIn:'24h'});
         return token;
     } catch (error) {
         console.error("Error generating auth token:", error);
